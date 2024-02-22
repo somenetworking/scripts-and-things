@@ -1,7 +1,7 @@
 $USER_ID=""
 $NTP_SERVER=""
 su -c "apt-get update -y && apt-get full-upgrade -y && apt-get install sudo -y && usermod -aG $USER_ID && newgrp sudo"
-su -c "  sed -i 's/#NTP=/$NTP_SERVER/' /etc/systemd/timesyncd.conf"
+su -c "  sed -i 's/#NTP=/NTP=$NTP_SERVER/' /etc/systemd/timesyncd.conf"
 sudo apt-get update -y
 sudo apt-get install ca-certificates curl gnupg -y
 sudo install -m 0755 -d /etc/apt/keyrings
